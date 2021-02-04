@@ -1,0 +1,7 @@
+{% load split %}
+{% for merchant in merchants %}
+    <h1>{{merchant.business_name}} seller</h1>
+    {% for product in merchant.product_set.all %}
+        {{ product.product_name | split:"," | index:0 }} <br>
+    {% endfor %}
+{% endfor %}
